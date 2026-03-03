@@ -1,0 +1,49 @@
+
+CREATE TABLE Users (
+UserID INT PRIMARY KEY AUTO_INCREMENT,
+Name VARCHAR(100),
+Email VARCHAR(100),
+Password VARCHAR(100)
+);
+
+-- PRODUCTS TABLE
+CREATE TABLE Products (
+ProductID INT PRIMARY KEY AUTO_INCREMENT,
+ProductName VARCHAR(100),
+Price DECIMAL(10,2),
+Stock INT
+);
+
+-- ORDERS TABLE
+CREATE TABLE Orders (
+OrderID INT PRIMARY KEY AUTO_INCREMENT,
+UserID INT,
+OrderDate DATE,
+TotalAmount DECIMAL(10,2),
+FOREIGN KEY (UserID) REFERENCES Users(UserID)
+);
+
+-- ORDER DETAILS TABLE
+CREATE TABLE OrderDetails (
+OrderDetailID INT PRIMARY KEY AUTO_INCREMENT,
+OrderID INT,
+ProductID INT,
+Quantity INT,
+Price DECIMAL(10,2),
+FOREIGN KEY (OrderID) REFERENCES Orders(OrderID),
+FOREIGN KEY (ProductID) REFERENCES Products(ProductID)
+);
+
+-- DISPLAY ALL PRODUCTS
+SELECT * FROM Products;
+
+-- TOTAL SALES AMOUNT
+SELECT SUM(TotalAmount) AS TotalSales FROM Orders;
+
+-- ORDER DETAILS FOR A SPECIFIC USER
+SELECT Orders.OrderID, Products.ProductName,
+OrderDetails.Quantity, OrderDetails.Price
+FROM Orders
+JOIN OrderDetails ON Orders.OrderID = OrderDetails.OrderID
+JOIN Products ON OrderDetails.ProductID = Products.ProductID
+WHERE Orders.UserID = 1;
