@@ -1,0 +1,15 @@
+com\example\eventmanagement\controller\UserController.class
+com\example\eventmanagement\EventManagementApplication.class
+com\example\eventmanagement\service\PaymentService.class
+com\example\eventmanagement\model\Booking.class
+com\example\eventmanagement\repository\EventRepository.class
+com\example\eventmanagement\model\EmailRequest.class
+com\example\eventmanagement\service\UserService.class
+com\example\eventmanagement\controller\EventController.class
+com\example\eventmanagement\model\BookingRequest.class
+com\example\eventmanagement\model\User.class
+com\example\eventmanagement\service\EmailService.class
+com\example\eventmanagement\service\EventService.class
+com\example\eventmanagement\model\Event.class
+com\example\eventmanagement\repository\UserRepository.class
+com\example\eventmanagement\repository\BookingRepository.class
